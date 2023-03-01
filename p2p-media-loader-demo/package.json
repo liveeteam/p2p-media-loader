@@ -21,9 +21,10 @@
     "hlsjs",
     "shaka player"
   ],
-  "scripts": {
-    "build-p2p-graph": "browserify -r p2p-graph | terser -m -c > p2p-graph.js",
-    "build": "npm run build-p2p-graph"
+  "scripts": { 
+    "browserify": "browserify -r p2p-graph > p2p-graph.js",
+    "minify": "terser p2p-graph.js -m -c > p2p-graph.min.js",
+    "build": "npm run browserify && npm run minify"
   },
   "repository": {
     "type": "git",
